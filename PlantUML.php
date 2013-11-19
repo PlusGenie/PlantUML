@@ -225,6 +225,10 @@ function renderPlantUML($PlantUML_Source, $imgFile, $dirname, $filename_prefix) 
     } else {
         $typestr = '';
     }
+
+   // Hack for Mac OS 10.9 with XAMPP 1.8.2
+    putenv('DYLD_LIBRARY_PATH');
+
     $command = "java -jar ".$plantumlJar.
                "{$typestr} -o \"{$dirname}\" \"{$umlFile}\"";
  
